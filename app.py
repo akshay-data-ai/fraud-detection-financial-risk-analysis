@@ -226,7 +226,7 @@ fig.update_layout(
 
 st.plotly_chart(fig, use_container_width=True)
 
-    st.caption(
+st.caption(
         "Feature importance is derived from the selected Random Forest "
         "model. The simulated dataset contains strong temporal patterns, "
         "so feature importance should not automatically be generalized "
