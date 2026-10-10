@@ -567,11 +567,35 @@ elif page == "Model Analytics":
         + chart_df["Sampling"]
     )
 
-    st.bar_chart(
-        chart_df.set_index(
-            "Model Method"
-        )["F1"]
+        # Horizontal F1 Score Comparison Chart
+    import plotly.express as px
+
+    chart_df = chart_df.sort_values("F1")
+
+    fig_f1 = px.bar(
+        chart_df,
+        x="F1",
+        y="Model Method",
+        orientation="h",
+        title="F1 Score Comparison Across Models",
+        text="F1"
     )
+
+    fig_f1.update_traces(
+        texttemplate="%{text:.4f}",
+        textposition="outside"
+    )
+
+    fig_f1.update_layout(
+        height=450,
+        margin=dict(l=220, r=80, t=60, b=40),
+        xaxis_title="F1 Score",
+        yaxis_title="",
+        xaxis=dict(range=[0, 1.08]),
+        showlegend=False
+    )
+
+    st.plotly_chart(fig_f1, use_container_width=True)
 
     st.divider()
 
