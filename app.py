@@ -759,7 +759,7 @@ elif page == "Financial Risk":
 
     col2.metric(
         "Estimated Investigation Cost",
-        f"{total_investigation_cost / 1_000_000:,.2f} M"
+        f"{total_investigation_cost:,.2f}"
     )
 
     col3, col4 = st.columns(2)
