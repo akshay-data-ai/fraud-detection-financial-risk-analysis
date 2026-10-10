@@ -649,17 +649,17 @@ elif page == "Financial Risk":
 
     col1.metric(
         "Actual Fraud Value",
-        f"{actual_fraud_value:,.2f}"
+        f"{actual_fraud_value / 1_000_000:,.2f} million"
     )
 
     col2.metric(
         "Detected Fraud Value",
-        f"{detected_fraud_value:,.2f}"
+        f"{detected_fraud_value / 1_000_000:,.2f} million"
     )
 
     col3.metric(
         "Missed Fraud Exposure",
-        f"{missed_fraud_value:,.2f}"
+        f"{missed_fraud_value / 1_000_000:,.2f} million"
     )
 
     col4.metric(
