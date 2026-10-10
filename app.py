@@ -649,17 +649,17 @@ elif page == "Financial Risk":
 
     col1.metric(
         "Actual Fraud Value",
-        f"{actual_fraud_value / 1_000_000:,.2f} million"
+        f"{actual_fraud_value / 1_000_000:,.2f} M"
     )
 
     col2.metric(
         "Detected Fraud Value",
-        f"{detected_fraud_value / 1_000_000:,.2f} million"
+        f"{detected_fraud_value / 1_000_000:,.2f} M"
     )
 
     col3.metric(
         "Missed Fraud Exposure",
-        f"{missed_fraud_value / 1_000_000:,.2f} million"
+        f"{missed_fraud_value / 1_000_000:,.2f} M"
     )
 
     col4.metric(
@@ -730,24 +730,24 @@ elif page == "Financial Risk":
 
     col1.metric(
         "Estimated Prevented Loss",
-        f"{estimated_prevented_loss:,.2f}"
+        f"{estimated_prevented_loss / 1_000_000:,.2f} M"
     )
 
     col2.metric(
         "Estimated Investigation Cost",
-        f"{total_investigation_cost:,.2f}"
+        f"{total_investigation_cost / 1_000_000:,.2f} M"
     )
 
     col3, col4 = st.columns(2)
 
     col3.metric(
         "Remaining Fraud Loss",
-        f"{remaining_fraud_loss:,.2f}"
+        f"{remaining_fraud_loss / 1_000_000:,.2f} M"
     )
 
     col4.metric(
         "Estimated Net Benefit",
-        f"{estimated_net_benefit:,.2f}"
+        f"{estimated_net_benefit / 1_000_000:,.2f} M"
     )
 
     st.warning(
