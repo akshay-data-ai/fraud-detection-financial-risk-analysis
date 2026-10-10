@@ -1,0 +1,8 @@
+Metric,Value
+Actual Fraud Value,235846526.37
+Detected Fraud Value,235430525.04
+Missed Fraud Exposure,416001.33
+Fraud Value Detection Rate,99.82361354377237
+Estimated Prevented Loss,188344420.032
+Estimated Investigation Cost,11350.0
+Estimated Net Benefit,188333070.032
