@@ -187,7 +187,7 @@ if page == "Executive Dashboard":
 
     st.subheader("Top Fraud Risk Drivers")
 
-   top_features = feature_importance.head(10).copy()
+   top_features = feature_importance.nlargest(10, "Importance").copy()
 
 # Clean feature names
 top_features["Feature"] = (
