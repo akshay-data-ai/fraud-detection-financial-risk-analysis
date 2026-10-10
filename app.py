@@ -187,19 +187,44 @@ if page == "Executive Dashboard":
 
     st.subheader("Top Fraud Risk Drivers")
 
-    top_features = feature_importance.head(10).copy()
+   top_features = feature_importance.head(10).copy()
 
-    top_features["Feature"] = (
-        top_features["Feature"]
-        .str.replace("num__", "", regex=False)
-        .str.replace("cat__", "", regex=False)
-    )
+# Clean feature names
+top_features["Feature"] = (
+    top_features["Feature"]
+    .str.replace("num__", "", regex=False)
+    .str.replace("cat__", "", regex=False)
+)
 
-    chart_data = top_features.set_index(
-        "Feature"
-    )["Importance"]
+# Sort features for a horizontal bar chart
+top_features = top_features.sort_values("Importance")
 
-    st.bar_chart(chart_data)
+# Create horizontal feature importance chart
+import plotly.express as px
+
+fig = px.bar(
+    top_features,
+    x="Importance",
+    y="Feature",
+    orientation="h",
+    title="Top 10 Most Important Features",
+    text="Importance"
+)
+
+fig.update_traces(
+    texttemplate="%{text:.3f}",
+    textposition="outside"
+)
+
+fig.update_layout(
+    height=520,
+    margin=dict(l=220, r=70, t=60, b=40),
+    xaxis_title="Feature Importance",
+    yaxis_title="",
+    showlegend=False
+)
+
+st.plotly_chart(fig, use_container_width=True)
 
     st.caption(
         "Feature importance is derived from the selected Random Forest "
